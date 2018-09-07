@@ -19,8 +19,8 @@ $app->get(
     	// peticiones a otro rest 
     	// etcetera
     	$datos = array(
-    					"nombre" => "pepe", 
-    					"edad" => "23"
+    					"nombre" => "Hola pinche putita", 
+    					"edad" => "69"
     					);
 
     	//json 
