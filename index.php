@@ -41,7 +41,7 @@ $app->get(
 					$result = curl_exec($ch);
 					if ($result == FALSE){
 						die('Curl failed: ' . curl_error($ch));
-						echo "error"
+						echo "error";
 					}
 					curl_close($ch);
     	//json 
