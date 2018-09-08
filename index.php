@@ -43,11 +43,12 @@ $app->get(
 						die('Curl failed: ' . curl_error($ch));
 						echo "error";
 					}else if($result==TRUE){
+						echo json_encode($datos);
 						echo "enviado correctamente";
 					}
 					curl_close($ch);
     	//json 
-        echo json_encode($datos);
+       
     }
 )->setParams(array($app));
 
