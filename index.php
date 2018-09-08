@@ -39,13 +39,12 @@ $app->get(
 					curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 					curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
 					$result = curl_exec($ch);
-					if ($result == FALSE){
-						die('Curl failed: ' . curl_error($ch));
-						echo "error";
-					}else if($result==TRUE){
+					
+						echo $result;
+					
 						echo json_encode($datos);
 						
-					}
+					
 					curl_close($ch);
     	//json 
        
