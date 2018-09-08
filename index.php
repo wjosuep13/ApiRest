@@ -44,7 +44,7 @@ $app->get(
 						echo "error";
 					}else if($result==TRUE){
 						echo json_encode($datos);
-						echo "enviado correctamente";
+						
 					}
 					curl_close($ch);
     	//json 
