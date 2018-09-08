@@ -25,7 +25,7 @@ $app->get(
 					$fields = array(
 						//'registration_ids' => $tokens, //tokens
 						//"condition" => "'dogs' in topics || 'cats' in topics",
-						"to" => "/topics/",
+						"to" => "/topics/Arqui1",
 						'data' => $message
 					);
 					$headers = array('Content-Type: application/json',
