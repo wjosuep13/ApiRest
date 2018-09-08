@@ -29,7 +29,7 @@ $app->get(
 						'data' => $message
 					);
 					$headers = array('Content-Type: application/json',
-						'Authorization:key=AIzaSyBj5l2DzazhLbtMPDw5-Y_QOeenZdAsN6I'
+						'Authorization:key=1:306727009907:android:c8a61f599fb2ef88'
 					);
 					$ch = curl_init($url);
 					curl_setopt($ch, CURLOPT_POST, true);
