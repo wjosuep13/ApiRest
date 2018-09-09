@@ -1,6 +1,6 @@
 <?php
-ini_set("display_errors", "1");
-ini_set("extension", "php_mongodb.dll");
+ini_set("display_errors", "On");
+
 //incluir el archivo principal
 include("Slim/Slim.php");
 //registran la instancia de slim
