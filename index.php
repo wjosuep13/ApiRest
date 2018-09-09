@@ -51,9 +51,9 @@ $app->get(
    	 if($opcion==NULL){
 		   echo "hola bienvenido ";
 	 }else if($opcion==0){
-          $datos = array("Modulo" => "Garage", "Descripcion" => "Se intento abrir el porton con una contraseña incorrecta");
+          $datos = array("Modulo" => "Garage", "Descripcion" => "Se intento abrir el porton con una clave incorrecta");
 	 }else if($opcion==1){
-	  $datos = array("Modulo" => "Garage", "Descripcion" => "Se abrio el porton con la contraseña correcta");
+	  $datos = array("Modulo" => "Garage", "Descripcion" => "Se abrio el porton con la clave correcta");
 	 }
 	    echo json_encode($datos);
     }
