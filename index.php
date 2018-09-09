@@ -51,7 +51,7 @@ $app->get(
 $app->get(
 	
     '/option/:opcion',function($opcion) use ($app){
-	    $datos="";
+	
    	 if($opcion==0){
           $datos = array("Modulo" => "Garage", "Descripcion" => "Se intento abrir el porton con una clave incorrecta");
 	 }else if($opcion==1){
