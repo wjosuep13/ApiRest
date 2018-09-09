@@ -1,5 +1,5 @@
 <?php
-ini_set("display_errors", "On");
+
 //incluir el archivo principal
 include("Slim/Slim.php");
 //registran la instancia de slim
@@ -9,6 +9,7 @@ $app = new \Slim\Slim();
 //routing 
 //accediendo VIA URL
 //http:///www.google.com/
+ini_set("display_errors", "On");
 $app->get(
     '/',function() use ($app){
     	
