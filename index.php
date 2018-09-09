@@ -13,13 +13,19 @@ $app = new \Slim\Slim();
 //http:///www.google.com/
 
 $app->get(
-    '/',function() use ($app){
-    	
-    	
-    	$datos = array(
+
+    '/option/:opcion',function($opcion) use ($app){
+   	 if($opcion==NULL){
+		  	$datos = array(
     					"Modulo" => "Garage", 
     					"Descripcion" => "Parametro invalido"
     					);
+	 }else if(opcion==0){
+          $datos = array("Modulo" => "Garage", "Descripcion" => "Se intento abrir el porton con una contraseña incorrecta");
+	 }else if(opcion==1){
+	  $datos = array("Modulo" => "Garage", "Descripcion" => "Se abrio el porton con la contraseña correcta");
+	 }
+	    
 						$message = array("message" => "Intentaron Abrir el Porton ALV");
 					$url = 'https://fcm.googleapis.com/fcm/send';
 					$fields = array(
@@ -39,30 +45,12 @@ $app->get(
 					curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 					curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
 					$result = curl_exec($ch);
-					
-						echo $result;
-					
-						echo json_encode($datos);
-						
-					
+				        echo $result;
 					curl_close($ch);
-    	//json 
-       
-    }
-)->setParams(array($app));
-
-$app->get(
-    '/option/:opcion',function($opcion) use ($app){
-   	 if($opcion==NULL){
-		   echo "hola bienvenido ";
-	 }else if(opcion==0){
-          $datos = array("Modulo" => "Garage", "Descripcion" => "Se intento abrir el porton con una contraseña incorrecta");
-	 }else if(opcion==1){
-	  $datos = array("Modulo" => "Garage", "Descripcion" => "Se abrio el porton con la contraseña correcta");
-	 }
-	    echo json_encode($datos);
+	                                echo json_encode($datos);
     }
 );
+
 
 //inicializamos la aplicacion(API)
 $app->run();
