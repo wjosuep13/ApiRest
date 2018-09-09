@@ -45,7 +45,7 @@ $app->get(
 					
 						echo $result;
 					
-						echo json_encode($datos);
+						
 						
 					
 					curl_close($ch);
