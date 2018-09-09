@@ -12,15 +12,7 @@ $app = new \Slim\Slim();
 $app->get(
     '/',function() use ($app){
     	
-    	$texto="{
- \"to\" : \"/topics/Arqui1\",
-  \"notification\" : {
- \"body\" : \"great match!\",
- \"title\" : \"Portugal vs. Denmark\"
- \"content_available\" : \"true\",
- \"priority\" : \"high\",
- }
-}"
+    	$texto = "{ \"to\" : \"/topics/Arqui1\", \"notification\" : {\"body\" : \"great match!\",\"title\" : \"Portugal vs. Denmark\"\"content_available\" : \"true\",\"priority\" : \"high\", }}"
     	$datos = array(
     					"Title" => "Garage", 
     					"Body" => "Parametro invalido",
