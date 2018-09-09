@@ -18,45 +18,7 @@ $app->get(
     					"Descripcion" => "Parametro invalido"
     					);
 	    
-	    
-	    $request = new HttpRequest();
-$request->setUrl('https://fcm.googleapis.com/fcm/send');
-$request->setMethod(HTTP_METH_POST);
 
-$request->setHeaders(array(
-  'Postman-Token' => 'ab022e97-ebb0-4e9d-8c9d-5357ab692d0f',
-  'Cache-Control' => 'no-cache',
-  'Content-Type' => 'application/json',
-  'Authorization' => 'key=AIzaSyCmvxnrqEFD5nwkH_n4RB-ItWLVFsYwCfI'
-));
-
-$request->setBody('{
- "to" : "/topics/Arqui1",
-  "notification" : {
- "body" : "Modulo de Garage intento de abrir el porton",
- "title" : "Notificacion"
- ,
- }
-}
-');
-
-try {
-  $response = $request->send();
-
-  echo $response->getBody();
-} catch (HttpException $ex) {
-  echo $ex;
-}
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
 	    
 						$message = array("message" => "Intentaron Abrir el Porton ALV");
 					$url = 'https://fcm.googleapis.com/fcm/send';
@@ -64,7 +26,11 @@ try {
 						//'registration_ids' => $tokens, //tokens
 						//"condition" => "'dogs' in topics || 'cats' in topics",
 						"to" => "/topics/Arqui1",
-						"data" => $message,
+						"notification" : {
+ 								"body" : "Modulo de Garage intento de abrir el porton",
+								 "title" : "Notificacion"
+								 ,
+								 }
 					);
 					$headers = array('Content-Type: application/json',
 						'Authorization:key=AAAAR2pavnM:APA91bG1Ty5smmk_5k-kcH0TDvCy0zHEHAZ6A9ZeJOCbHAnOx-lm2wA8gf7pFyb09WQHX7BFMXjOhea5JqSJU0VGN7djqOkQ8RDAvjhporK0l77BBS-BM7yJ_1N6cGm3GnJeQtTt5uRM'
