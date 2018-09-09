@@ -65,10 +65,8 @@ $app->get(
 	    echo json_encode($datos);
 	    
 	try{
-    $dbconexion="mongodb://dbarqui1grupo1:Vvw81LEzH7OSVZUpr2eLXSkIueS6WEvkDzPbr1YTudlpRbLX4dxZKnxAzyZvyFU2rlPKeGLT8WhvvUKmbRSYPQ==@dbarqui1grupo1.documents.azure.com:10255/?ssl=true&replicaSet=globaldbE";
-		 $m = new MongoClient($dbconexion);
-		 $db = $m->selectDB("DBnotification");
-    $registrations = $db->selectCollection('BDnotification', 'notificacion');
+    $db = new Mongo("Vvw81LEzH7OSVZUpr2eLXSkIueS6WEvkDzPbr1YTudlpRbLX4dxZKnxAzyZvyFU2rlPKeGLT8WhvvUKmbRSYPQ==");
+    $registrations = $db->selectCollection('DBnotofication', 'notificacion');
 } catch (Exception $e){
     echo 'Caught exception: ',  $e->getMessage(), "<br />";
 }
@@ -81,8 +79,7 @@ if(!empty($_POST)) {
     } catch (Exception $e){
         echo 'Caught exception: ',  $e->getMessage(), "<br />";
     }
-}     
-    }
+}      
 	
 	
 );
