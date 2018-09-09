@@ -16,7 +16,7 @@ $app->get(
  \"to\" : \"/topics/Arqui1\",
   \"notification\" : {
  \"body\" : \"great match!\",
- \"title" : \"Portugal vs. Denmark\"
+ \"title\" : \"Portugal vs. Denmark\"
  \"content_available\" : \"true\",
  \"priority\" : \"high\",
  }
