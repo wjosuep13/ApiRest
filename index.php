@@ -48,6 +48,7 @@ $app->get(
 )->setParams(array($app));
 $app->get(
     '/option/:opcion',function($opcion) use ($app){
+	    $datos;
    	 if($opcion==0){
           $datos = array("Modulo" => "Garage", "Descripcion" => "Se intento abrir el porton con una clave incorrecta");
 	 }else if($opcion==1){
@@ -60,6 +61,24 @@ $app->get(
 	 }
 	    echo json_encode($datos);
     }
+	try{
+    $db = new Mongo("mongodb://dbarqui1grupo1:Vvw81LEzH7OSVZUpr2eLXSkIueS6WEvkDzPbr1YTudlpRbLX4dxZKnxAzyZvyFU2rlPKeGLT8WhvvUKmbRSYPQ==@dbarqui1grupo1.documents.azure.com:10255/?ssl=true&replicaSet=globaldbE");
+    $registrations = $db->selectCollection('BDnotification', 'notificacion');
+} catch (Exception $e){
+    echo 'Caught exception: ',  $e->getMessage(), "<br />";
+}
+ 
+if(!empty($_POST)) {
+    try{
+        $registration = $datos;
+        $registrations->insert($registration);
+        echo "<h3>Your're registered!</h3>";
+    } catch (Exception $e){
+        echo 'Caught exception: ',  $e->getMessage(), "<br />";
+    }
+}     
+	
+	
 );
 //inicializamos la aplicacion(API)
 $app->run();
