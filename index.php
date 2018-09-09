@@ -52,7 +52,7 @@ $app->get(
 )->setParams(array($app));
 
 $app->get(
-    '/opcion/:opcion',function($opcion) use ($app){
+    '/option/:opcion',function($opcion) use ($app){
    	 if($opcion==NULL){
 		   echo "hola bienvenido ";
 	 }else if(opcion==0){
