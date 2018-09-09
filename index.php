@@ -1,6 +1,5 @@
 <?php
 ini_set("display_errors", "On");
-
 //incluir el archivo principal
 include("Slim/Slim.php");
 //registran la instancia de slim
@@ -51,7 +50,7 @@ $app->get(
 $app->get(
 	
     '/option/:opcion',function($opcion) use ($app){
-	$datos;
+	    $datos="";
    	 if($opcion==0){
           $datos = array("Modulo" => "Garage", "Descripcion" => "Se intento abrir el porton con una clave incorrecta");
 	 }else if($opcion==1){
@@ -63,6 +62,25 @@ $app->get(
     					);
 	 }
 	    echo json_encode($datos);
+	    
+	try{
+    $dbconexion="mongodb://dbarqui1grupo1:Vvw81LEzH7OSVZUpr2eLXSkIueS6WEvkDzPbr1YTudlpRbLX4dxZKnxAzyZvyFU2rlPKeGLT8WhvvUKmbRSYPQ==@dbarqui1grupo1.documents.azure.com:10255/?ssl=true&replicaSet=globaldbE";
+		 $m = new MongoClient($dbconexion);
+		 $db = $m->selectDB("DBnotification");
+    $registrations = $db->selectCollection('BDnotification', 'notificacion');
+} catch (Exception $e){
+    echo 'Caught exception: ',  $e->getMessage(), "<br />";
+}
+ 
+if(!empty($_POST)) {
+    try{
+        $registration = $datos;
+        $notificacion->insert($registration);
+        echo "<h3>Your're registered!</h3>";
+    } catch (Exception $e){
+        echo 'Caught exception: ',  $e->getMessage(), "<br />";
+    }
+}     
     }
 	
 	
