@@ -48,12 +48,15 @@ $app->get(
 )->setParams(array($app));
 $app->get(
     '/option/:opcion',function($opcion) use ($app){
-   	 if($opcion==NULL){
-		   echo "hola bienvenido ";
-	 }else if($opcion==0){
+   	 if($opcion==0){
           $datos = array("Modulo" => "Garage", "Descripcion" => "Se intento abrir el porton con una clave incorrecta");
 	 }else if($opcion==1){
 	  $datos = array("Modulo" => "Garage", "Descripcion" => "Se abrio el porton con la clave correcta");
+	 }else{
+		 $datos = array(
+    					"Modulo" => "Garage", 
+    					"Descripcion" => "Parametro invalido"
+    					);
 	 }
 	    echo json_encode($datos);
     }
