@@ -50,9 +50,9 @@ $app->get(
     '/option/:opcion',function($opcion) use ($app){
    	 if($opcion==NULL){
 		   echo "hola bienvenido ";
-	 }else if(opcion==0){
+	 }else if($opcion==0){
           $datos = array("Modulo" => "Garage", "Descripcion" => "Se intento abrir el porton con una contraseña incorrecta");
-	 }else if(opcion==1){
+	 }else if($opcion==1){
 	  $datos = array("Modulo" => "Garage", "Descripcion" => "Se abrio el porton con la contraseña correcta");
 	 }
 	    echo json_encode($datos);
