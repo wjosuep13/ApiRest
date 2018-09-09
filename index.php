@@ -1,6 +1,6 @@
 <?php
-
-
+ini_set("display_errors", "1");
+ini_set("extension", "php_mongodb.dll");
 //incluir el archivo principal
 include("Slim/Slim.php");
 //registran la instancia de slim
@@ -10,7 +10,6 @@ $app = new \Slim\Slim();
 //routing 
 //accediendo VIA URL
 //http:///www.google.com/
-
 $app->get(
     '/',function() use ($app){
     	
@@ -65,10 +64,26 @@ $app->get(
 	 }
 	    echo json_encode($datos);
     }
-	  
+	try{
+    $dbconexion="mongodb://dbarqui1grupo1:Vvw81LEzH7OSVZUpr2eLXSkIueS6WEvkDzPbr1YTudlpRbLX4dxZKnxAzyZvyFU2rlPKeGLT8WhvvUKmbRSYPQ==@dbarqui1grupo1.documents.azure.com:10255/?ssl=true&replicaSet=globaldbE";
+		 $m = new MongoClient($dbconexion);
+		 $db = $m->selectDB("DBnotification");
+    $registrations = $db->selectCollection('BDnotification', 'notificacion');
+} catch (Exception $e){
+    echo 'Caught exception: ',  $e->getMessage(), "<br />";
+}
+ 
+if(!empty($_POST)) {
+    try{
+        $registration = $datos;
+        $notificacion->insert($registration);
+        echo "<h3>Your're registered!</h3>";
+    } catch (Exception $e){
+        echo 'Caught exception: ',  $e->getMessage(), "<br />";
+    }
+}     
 	
 	
 );
 //inicializamos la aplicacion(API)
 $app->run();
-
