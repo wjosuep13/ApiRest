@@ -9,11 +9,11 @@ $app = new \Slim\Slim();
 //routing 
 //accediendo VIA URL
 //http:///www.google.com/
-ini_set("display_errors", "On");
+
 $app->get(
     '/',function() use ($app){
     	
-    	
+    	ini_set("display_errors", "On");
     	$datos = array(
     					"Modulo" => "Garage", 
     					"Descripcion" => "Parametro invalido"
@@ -49,6 +49,7 @@ $app->get(
     }
 )->setParams(array($app));
 $app->get(
+	ini_set("display_errors", "On");
     '/option/:opcion',function($opcion) use ($app){
 	    $datos="";
    	 if($opcion==0){
