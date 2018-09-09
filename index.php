@@ -1,5 +1,6 @@
 <?php
 
+ini_set("display_errors", "On");
 //incluir el archivo principal
 include("Slim/Slim.php");
 //registran la instancia de slim
@@ -13,7 +14,7 @@ $app = new \Slim\Slim();
 $app->get(
     '/',function() use ($app){
     	
-    	ini_set("display_errors", "On");
+    	
     	$datos = array(
     					"Modulo" => "Garage", 
     					"Descripcion" => "Parametro invalido"
@@ -49,7 +50,7 @@ $app->get(
     }
 )->setParams(array($app));
 $app->get(
-	ini_set("display_errors", "On");
+	
     '/option/:opcion',function($opcion) use ($app){
 	    $datos="";
    	 if($opcion==0){
@@ -85,3 +86,4 @@ if(!empty($_POST)) {
 );
 //inicializamos la aplicacion(API)
 $app->run();
+?>
