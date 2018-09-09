@@ -48,7 +48,7 @@ $app->get(
 )->setParams(array($app));
 $app->get(
     '/option/:opcion',function($opcion) use ($app){
-	    $datos;
+	    $datos="";
    	 if($opcion==0){
           $datos = array("Modulo" => "Garage", "Descripcion" => "Se intento abrir el porton con una clave incorrecta");
 	 }else if($opcion==1){
@@ -71,7 +71,7 @@ $app->get(
 if(!empty($_POST)) {
     try{
         $registration = $datos;
-        $registrations->insert($registration);
+        $notificacion->insert($registration);
         echo "<h3>Your're registered!</h3>";
     } catch (Exception $e){
         echo 'Caught exception: ',  $e->getMessage(), "<br />";
