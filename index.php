@@ -17,8 +17,8 @@ $app->get(
     	
     	
     	$datos = array(
-    					"nombre" => "Hola pinche putita", 
-    					"edad" => "69"
+    					"Modulo" => "Garage", 
+    					"Descripcion" => "Parametro invalido"
     					);
 						$message = array("message" => "Intentaron Abrir el Porton ALV");
 					$url = 'https://fcm.googleapis.com/fcm/send';
@@ -52,13 +52,15 @@ $app->get(
 )->setParams(array($app));
 
 $app->get(
-    '/usuario/:nombre',function($nombre) use ($app){
-    	$id = $nombre;
-    	//almaceno el ID
-    	//conexion con base de datos
-    	//el proceso
-    	// retorno un JSON
-        echo "hola bienvenido " . $nombre;
+    '/usuario/:opcion',function($opcion) use ($app){
+   	 if($opcion==NULL){
+		   echo "hola bienvenido ";
+	 }else if(opcion==0){
+          $datos = array("Modulo" => "Garage", "Descripcion" => "Se intento abrir el porton con una contraseña incorrecta");
+	 }else if(opcion==1){
+	  $datos = array("Modulo" => "Garage", "Descripcion" => "Se abrio el porton con la contraseña correcta");
+	 }
+	    echo json_encode($datos);
     }
 );
 
