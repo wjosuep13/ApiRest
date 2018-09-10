@@ -15,14 +15,14 @@ $app->get(
     
     
 	    
-					$message = array("message" => "Intentaron Abrir el Porton ALV",
-							"customKey" => "customValue");
+					$message = array("body" => "Intentaron Abrir el Porton ALV",
+							"title" => "titulo");
 					$url = 'https://fcm.googleapis.com/fcm/send';
 					$fields = array(
 						//'registration_ids' => $tokens, //tokens
 						//"condition" => "'Arqui1' in topics" || "'Arqui1' in topics",
 						"to" => "/topics/Arqui1",
-						'data' =>$message
+						'notification' =>$message
 					);
 	                    echo json_encode($fields);
 					$headers = array('Content-Type: application/json',
