@@ -97,7 +97,7 @@ $app->get(
 	 }
 	    echo json_encode($datos);
 	    
-	try{
+	/*try{
     $db = new Mongo("Vvw81LEzH7OSVZUpr2eLXSkIueS6WEvkDzPbr1YTudlpRbLX4dxZKnxAzyZvyFU2rlPKeGLT8WhvvUKmbRSYPQ==");
     $registrations = $db->selectCollection('DBnotofication', 'notificacion');
 } catch (Exception $e){
@@ -112,7 +112,7 @@ if(!empty($_POST)) {
     } catch (Exception $e){
         echo 'Caught exception: ',  $e->getMessage(), "<br />";
     }
-}      
+} */     
 	
  }	
 );
