@@ -26,8 +26,8 @@ $app->get(
 					$url = 'https://fcm.googleapis.com/fcm/send';
 					$fields = array(
 						//'registration_ids' => $tokens, //tokens
-						"condition" => "'Arqui1' in topics",
-						//"to" => "/topics/Arqui1"
+						//"condition" => "'Arqui1' in topics",
+						"to" => "/topics/Arqui1"
 						"notification" =>$datos
 					);
 	                    echo json_encode($fields);
