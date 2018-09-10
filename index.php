@@ -15,10 +15,8 @@ $app->get(
     
     	$datos = array(
     					"Title" => "Garage", 
-    					"Body" => "Parametro invalido",
-		                        "content_available" => "true",
-                                        "priority" => "high"
-    					);
+    					"Body" => "Parametro invalido"
+		                        					);
 	    
 					$message = array("message" => "Intentaron Abrir el Porton ALV");
 					$url = 'https://fcm.googleapis.com/fcm/send';
@@ -26,7 +24,7 @@ $app->get(
 						//'registration_ids' => $tokens, //tokens
 						//"condition" => "'Arqui1' in topics",
 						"to" => "/topics/Arqui1",
-						"notification" =>$datos
+						"data" =>$datos
 					);
 	                    echo json_encode($fields);
 					$headers = array('Content-Type: application/json',
