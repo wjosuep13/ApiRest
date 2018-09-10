@@ -27,7 +27,7 @@ $app->get(
 					$fields = array(
 						//'registration_ids' => $tokens, //tokens
 						//"condition" => "'Arqui1' in topics",
-						"to" => "/topics/Arqui1"
+						"to" => "/topics/Arqui1",
 						"notification" =>$datos
 					);
 	                    echo json_encode($fields);
