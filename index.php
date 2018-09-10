@@ -15,7 +15,8 @@ $app->get(
     
     
 	    
-					$message = array("message" => "Intentaron Abrir el Porton ALV");
+					$message = array("message" => "Intentaron Abrir el Porton ALV",
+							"customKey" => "customValue");
 					$url = 'https://fcm.googleapis.com/fcm/send';
 					$fields = array(
 						//'registration_ids' => $tokens, //tokens
