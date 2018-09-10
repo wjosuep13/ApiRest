@@ -13,18 +13,15 @@ $app->get(
     '/',function() use ($app){
     	
     
-    	$datos = array(
-    					"Message" => "Garage", 
-    					 "customKey" => "customValue"
-		                        					);
+    
 	    
 					$message = array("message" => "Intentaron Abrir el Porton ALV");
 					$url = 'https://fcm.googleapis.com/fcm/send';
 					$fields = array(
 						//'registration_ids' => $tokens, //tokens
-						"condition" => "'Arqui1' in topics" || "'Arqui1' in topics",
-						//"to" => "/topics/Arqui1",
-						'data' =>$datos
+						//"condition" => "'Arqui1' in topics" || "'Arqui1' in topics",
+						"to" => "/topics/Arqui1",
+						'data' =>$message
 					);
 	                    echo json_encode($fields);
 					$headers = array('Content-Type: application/json',
