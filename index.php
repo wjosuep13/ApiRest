@@ -14,8 +14,8 @@ $app->get(
     	
     
     	$datos = array(
-    					"Title" => "Garage", 
-    					"Body" => "Parametro invalido"
+    					"Message" => "Garage", 
+    					 "customKey" => "customValue"
 		                        					);
 	    
 					$message = array("message" => "Intentaron Abrir el Porton ALV");
@@ -24,7 +24,7 @@ $app->get(
 						//'registration_ids' => $tokens, //tokens
 						"condition" => "'Arqui1' in topics" || "'Arqui1' in topics",
 						//"to" => "/topics/Arqui1",
-						"data" =>$datos
+						'data' =>$datos
 					);
 	                    echo json_encode($fields);
 					$headers = array('Content-Type: application/json',
