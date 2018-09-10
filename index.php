@@ -20,7 +20,35 @@ $app->get(
                                         "priority" => "high",
     					);
 	    
+$request = new HttpRequest();
+$request->setUrl('https://fcm.googleapis.com/fcm/send');
+$request->setMethod(HTTP_METH_POST);
 
+$request->setHeaders(array(
+  'Postman-Token' => 'ab022e97-ebb0-4e9d-8c9d-5357ab692d0f',
+  'Cache-Control' => 'no-cache',
+  'Content-Type' => 'application/json',
+  'Authorization' => 'key=AIzaSyCmvxnrqEFD5nwkH_n4RB-ItWLVFsYwCfI'
+));
+
+$request->setBody('{
+ "to" : "/topics/Arqui1",
+  "notification" : {
+ "body" : "great match!",
+ "title" : "Portugal vs. Denmark"
+ "content_available" : "true",
+ "priority" : "high",
+ }
+}
+');
+
+try {
+  $response = $request->send();
+
+  echo $response->getBody();
+} catch (HttpException $ex) {
+  echo $ex;
+}
 	    
 						$message = array("message" => "Intentaron Abrir el Porton ALV");
 					$url = 'https://fcm.googleapis.com/fcm/send';
