@@ -15,8 +15,8 @@ $app->get(
     
     
 	    
-					$message = array("body" => "Intentaron Abrir el Porton ALV",
-							"title" => "titulo");
+					$message = array("body" => "Parametro Invalido",
+							"title" => "Modulo Garage");
 					$url = 'https://fcm.googleapis.com/fcm/send';
 					$fields = array(
 						//'registration_ids' => $tokens, //tokens
@@ -52,16 +52,42 @@ $app->get(
     '/option/:opcion',function($opcion) use ($app){
 	    $datos="";
    	 if($opcion==0){
-          $datos = array("Modulo" => "Garage", "Descripcion" => "Se intento abrir el porton con una clave incorrecta");
+          $datos = array("body" => "Se intento abrir el porton con una clave incorrecta", "title" => "Modulo Garage");
 	 }else if($opcion==1){
-	  $datos = array("Modulo" => "Garage", "Descripcion" => "Se abrio el porton con la clave correcta");
+	  $datos = array("body" => "Se abrio el porton con la clave correcta", "title" => "Modulo Garage");
 	 }else{
 		 $datos = array(
-    					"Modulo" => "Garage", 
-    					"Descripcion" => "Parametro invalido"
+    					"body" => "Parametro invalidoe", 
+    					"title" => "Modulo garage"
     					);
 	 }
-	    echo json_encode($datos);
+	    
+	    $url = 'https://fcm.googleapis.com/fcm/send';
+					$fields = array(
+						//'registration_ids' => $tokens, //tokens
+						//"condition" => "'Arqui1' in topics" || "'Arqui1' in topics",
+						"to" => "/topics/Arqui1",
+						'notification' =>$datos
+					);
+	                    echo json_encode($fields);
+					$headers = array('Content-Type: application/json',
+						'Authorization:key=AIzaSyCmvxnrqEFD5nwkH_n4RB-ItWLVFsYwCfI'
+					);
+					$ch = curl_init($url);
+					curl_setopt($ch, CURLOPT_POST, true);
+					curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+					curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+					curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+					curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
+					$result = curl_exec($ch);
+					
+						echo $result;
+					
+						
+						
+					
+					curl_close($ch);
 	    
 	/*try{
     $db = new Mongo("Vvw81LEzH7OSVZUpr2eLXSkIueS6WEvkDzPbr1YTudlpRbLX4dxZKnxAzyZvyFU2rlPKeGLT8WhvvUKmbRSYPQ==");
