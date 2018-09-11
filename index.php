@@ -1,6 +1,7 @@
 <?php
 
 ini_set("display_errors", "On");
+phpinfo();
 //incluir el archivo principal
 include("Slim/Slim.php");
 //registran la instancia de slim
