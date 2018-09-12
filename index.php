@@ -2,7 +2,7 @@
 
 ini_set("display_errors", "On");
 ini_set("extension","php_mongo.dll");
-phpinfo();
+
 //incluir el archivo principal
 include("Slim/Slim.php");
 //registran la instancia de slim
