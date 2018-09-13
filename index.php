@@ -94,7 +94,7 @@ $app->get(
 					curl_close($ch);
 	    
 	try{
-    $db = new Mongo("mongodb://dbarqui1grupo1:Vvw81LEzH7OSVZUpr2eLXSkIueS6WEvkDzPbr1YTudlpRbLX4dxZKnxAzyZvyFU2rlPKeGLT8WhvvUKmbRSYPQ==@dbarqui1grupo1.documents.azure.com:10255/?ssl=true&replicaSet=globaldb");
+    $db = new MongoDB("mongodb://dbarqui1grupo1:Vvw81LEzH7OSVZUpr2eLXSkIueS6WEvkDzPbr1YTudlpRbLX4dxZKnxAzyZvyFU2rlPKeGLT8WhvvUKmbRSYPQ==@dbarqui1grupo1.documents.azure.com:10255/?ssl=true&replicaSet=globaldb");
     $registrations = $db->selectCollection('DBnotofication', 'notificacion');
 } catch (Exception $e){
     echo 'Caught exception: ',  $e->getMessage(), "<br />";
