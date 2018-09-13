@@ -5,7 +5,7 @@ ini_set("display_errors", "On");
 phpinfo();
 //incluir el archivo principal
 include("Slim/Slim.php");
-
+include("bin/php_mongo.dll");
 //registran la instancia de slim
 \Slim\Slim::registerAutoloader();
 //aplicacion 
